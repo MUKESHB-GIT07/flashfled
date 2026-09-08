@@ -1,0 +1,384 @@
+.trackerContainer {
+  background: rgba(11, 15, 23, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+  border-radius: 14px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+}
+
+.headerTitleBox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.beaconBadge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid #ef4444;
+  color: #ef4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerTag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  color: #38bdf8;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.refreshBtn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #94a3b8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.refreshBtn:hover { color: #ffffff; background: rgba(255, 255, 255, 0.15); }
+.closeBtn { background: transparent; border: none; color: #94a3b8; cursor: pointer; }
+.closeBtn:hover { color: #ffffff; }
+
+.spin { animation: spin 1s linear infinite; }
+@keyframes spin { 100% { transform: rotate(360deg); } }
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Stepper Progress Bar */
+.stepperBox {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.stepperRow {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .stepperRow { grid-template-columns: repeat(4, 1fr); gap: 8px; }
+}
+
+.stepCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.stepDot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.stepDotCompleted {
+  background: rgba(52, 211, 153, 0.2);
+  border-color: #34d399;
+  color: #34d399;
+}
+
+.stepDotActive {
+  background: #38bdf8;
+  border-color: #ffffff;
+  color: #0b0f17;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.8);
+}
+
+.stepLabel {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.55rem;
+  color: #64748b;
+  line-height: 1.1;
+}
+
+.stepLabelActive {
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Status Banner */
+.statusBanner {
+  border-radius: 8px;
+  padding: 12px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bannerActive {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+}
+
+.bannerRescued {
+  background: rgba(52, 211, 153, 0.15);
+  border: 1px solid rgba(52, 211, 153, 0.4);
+}
+
+.statusTitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #38bdf8;
+}
+
+.statusTitle strong { color: #ffffff; font-weight: 800; }
+.statusNote { font-family: 'Inter', sans-serif; font-size: 0.7rem; color: #cbd5e1; margin: 2px 0 0 0; }
+
+.bannerRight { display: flex; flex-direction: column; align-items: flex-end; }
+.prioTag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: #ef4444; font-weight: 800; }
+.timeTag { font-family: 'JetBrains Mono', monospace; font-size: 0.58rem; color: #64748b; }
+
+/* Info Grid */
+.infoGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+@media (max-width: 640px) { .infoGrid { grid-template-columns: 1fr; } }
+
+.infoBox {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.infoIconBlue { color: #38bdf8; margin-top: 2px; }
+.infoIconGreen { color: #34d399; margin-top: 2px; }
+.infoIconRed { color: #ef4444; margin-top: 2px; }
+
+.infoLabel { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.52rem; color: #64748b; }
+.infoVal { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: #ffffff; font-weight: 700; }
+.infoSub { display: block; font-family: 'Inter', sans-serif; font-size: 0.58rem; color: #94a3b8; }
+
+/* Chat Box */
+.chatBox {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chatTitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  color: #38bdf8;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.msgList {
+  max-height: 120px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.msgBubble {
+  border-radius: 6px;
+  padding: 6px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  max-width: 85%;
+}
+
+.bubbleUser {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  align-self: flex-end;
+}
+
+.bubbleResponder {
+  background: rgba(239, 68, 68, 0.15);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  align-self: flex-start;
+}
+
+.msgHeader {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.52rem;
+  color: #94a3b8;
+  margin-bottom: 2px;
+}
+
+.msgBubble p { margin: 0; color: #ffffff; }
+
+.msgForm { display: flex; gap: 6px; }
+
+.msgInput {
+  flex: 1;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 5px 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+}
+
+.msgSendBtn {
+  background: #38bdf8;
+  color: #0b0f17;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+/* Actions Bar */
+.actionsBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.gpsUpdateBtn {
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: #38bdf8;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.notifyBtn {
+  background: rgba(52, 211, 153, 0.12);
+  border: 1px solid rgba(52, 211, 153, 0.3);
+  color: #34d399;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cancelBtn {
+  margin-left: auto;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.62rem;
+  font-weight: 700;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* Cancel Modal Overlay */
+.cancelOverlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3000;
+}
+
+.cancelDialog {
+  background: #0f172a;
+  border: 1px solid #ef4444;
+  border-radius: 10px;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.cancelDialog h4 { font-family: 'Space Grotesk', sans-serif; color: #ef4444; margin: 0 0 6px 0; }
+.cancelDialog p { font-family: 'Inter', sans-serif; font-size: 0.75rem; color: #cbd5e1; margin-bottom: 16px; }
+
+.cancelDialogBtns { display: flex; flex-direction: column; gap: 8px; }
+
+.confirmCancelBtn {
+  background: #ef4444; color: #ffffff; border: none; border-radius: 6px; padding: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 800; cursor: pointer;
+}
+
+.keepRescueBtn {
+  background: rgba(255, 255, 255, 0.1); color: #ffffff; border: none; border-radius: 6px; padding: 8px;
+  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; cursor: pointer;
+}

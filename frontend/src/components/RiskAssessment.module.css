@@ -1,0 +1,220 @@
+.container {
+  background: var(--bg-card, rgba(16, 18, 26, 0.75));
+  border: 1px solid rgba(255, 255, 255, var(--border-default, 0.07));
+  border-radius: var(--radius-xl, 16px);
+  padding: 24px;
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+}
+
+.header {
+  margin-bottom: 24px;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--accent-blue, #4f8ef7);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--text-primary, #e4e7ed);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: auto 1fr;
+    align-items: center;
+  }
+}
+
+.gaugeColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaugeWrapper {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 16px;
+}
+
+.svgGauge {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg); /* Start arc at top */
+}
+
+.bgCircle {
+  fill: none;
+  stroke: rgba(255, 255, 255, var(--border-subtle, 0.04));
+  stroke-width: 8px;
+}
+
+.fgCircle {
+  fill: none;
+  stroke-width: 8px;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.gaugeCenter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaugeScore {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-5xl, 3rem);
+  font-weight: 700;
+  color: var(--text-primary, #e4e7ed);
+  line-height: 1;
+}
+
+.gaugeMax {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-tertiary, #555d72);
+  margin-top: 4px;
+}
+
+.riskBadge {
+  padding: 6px 16px;
+  border-radius: var(--radius-full, 9999px);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  animation: gentleGlow 2s infinite alternate;
+}
+
+.badgeLow {
+  background: rgba(52, 211, 153, 0.1);
+  color: var(--risk-low, #34d399);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.badgeModerate {
+  background: rgba(251, 191, 36, 0.1);
+  color: var(--risk-moderate, #fbbf24);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.badgeHigh {
+  background: rgba(251, 146, 60, 0.1);
+  color: var(--risk-high, #fb923c);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+.badgeCritical {
+  background: rgba(248, 113, 113, 0.1);
+  color: var(--risk-critical, #f87171);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.detailsColumn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.confidenceSection {
+  margin-bottom: 20px;
+}
+
+.confidenceHeader {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.confidenceLabel {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary, #8b93a8);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+.confidenceValue {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--accent-blue, #4f8ef7);
+  font-weight: 600;
+}
+
+.confidenceBarTrack {
+  width: 100%;
+  height: 4px;
+  background: var(--bg-tertiary, #161a24);
+  border-radius: var(--radius-full, 9999px);
+  overflow: hidden;
+}
+
+.confidenceBarFill {
+  height: 100%;
+  background: var(--accent-blue, #4f8ef7);
+  border-radius: var(--radius-full, 9999px);
+  box-shadow: 0 0 8px rgba(79, 142, 247, 0.5);
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, var(--border-subtle, 0.04));
+  margin: 20px 0;
+}
+
+.driversTitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary, #8b93a8);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px 0;
+}
+
+.disclaimer {
+  margin-top: 24px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-muted, #3d4455);
+  font-style: italic;
+  line-height: 1.4;
+}
+
+@keyframes gentleGlow {
+  from { box-shadow: 0 0 4px currentColor; }
+  to { box-shadow: 0 0 12px currentColor; }
+}
+
+@keyframes slideInLeft {
+  from { transform: scaleX(0); transform-origin: left; }
+  to { transform: scaleX(1); transform-origin: left; }
+}

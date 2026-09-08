@@ -1,0 +1,131 @@
+.card {
+  background: var(--bg-card, rgba(16, 18, 26, 0.75));
+  border: 1px solid rgba(255, 255, 255, var(--border-default, 0.07));
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px;
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeInUp 0.6s ease-out backwards;
+  transition: transform var(--transition-base, 0.3s), border-color var(--transition-base, 0.3s);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255, 255, 255, var(--border-medium, 0.15));
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-secondary, #8b93a8);
+}
+
+.icon {
+  color: var(--accent-blue, #4f8ef7);
+}
+
+.title {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.center {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
+.value {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-3xl, 1.875rem);
+  font-weight: 700;
+  color: var(--text-primary, #e4e7ed);
+  line-height: 1;
+}
+
+.unit {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-tertiary, #555d72);
+}
+
+.trendRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 28px;
+}
+
+.trendIndicator {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 500;
+}
+
+.trendPeriod {
+  color: var(--text-tertiary, #555d72);
+  margin-left: 2px;
+}
+
+.trendUp {
+  color: var(--risk-high, #fb923c);
+}
+
+.trendDown {
+  color: var(--risk-low, #34d399);
+}
+
+.trendNeutral {
+  color: var(--text-tertiary, #555d72);
+}
+
+.sparklineWrapper {
+  width: 60px;
+  height: 100%;
+  color: var(--accent-blue, #4f8ef7);
+}
+
+.sparklinePath {
+  vector-effect: non-scaling-stroke;
+}
+
+.bottom {
+  margin-top: auto;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, var(--border-subtle, 0.04));
+}
+
+.metadata {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--text-muted, #3d4455);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

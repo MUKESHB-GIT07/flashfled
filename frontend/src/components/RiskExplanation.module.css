@@ -1,0 +1,150 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6, 24px);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--text-tertiary, #555d72);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-xl, 1.25rem);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-primary, #e4e7ed);
+  letter-spacing: 0.05em;
+}
+
+.cascade {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.stepCard {
+  background-color: var(--bg-card, rgba(16,18,26,0.75));
+  border: 1px solid var(--border-medium, rgba(255,255,255,0.1));
+  border-radius: var(--radius-lg, 8px);
+  padding: var(--space-4, 16px);
+  display: flex;
+  align-items: center;
+  gap: var(--space-4, 16px);
+  width: 100%;
+  max-width: 400px;
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.iconWrapper {
+  background-color: var(--bg-elevated, #1c2030);
+  border-radius: var(--radius-md, 6px);
+  padding: var(--space-3, 12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconNormal {
+  color: var(--text-secondary, #8b93a8);
+}
+
+.textWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.stepLabel {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-md, 1rem);
+  font-weight: 600;
+  color: var(--text-primary, #e4e7ed);
+  margin: 0 0 4px 0;
+}
+
+.stepDetail {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-secondary, #8b93a8);
+  margin: 0;
+}
+
+.connector {
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease-out both;
+}
+
+.dashedLine {
+  width: 2px;
+  height: 100%;
+  background-image: linear-gradient(to bottom, var(--text-muted) 50%, transparent 50%);
+  background-size: 2px 8px;
+  background-repeat: repeat-y;
+  animation: dashFlow 2s linear infinite;
+}
+
+@keyframes dashFlow {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 16px;
+  }
+}
+
+.conclusionCard {
+  background-color: var(--risk-high-bg, rgba(251, 146, 60, 0.1));
+  border: 1px solid var(--risk-high, #fb923c);
+  box-shadow: 0 0 15px rgba(251, 146, 60, 0.2);
+  animation: fadeInUp 0.5s ease-out both, gentleGlow 3s infinite alternate 0.5s;
+}
+
+.conclusionCard .iconWrapper {
+  background-color: rgba(251, 146, 60, 0.2);
+}
+
+.iconConclusion {
+  color: var(--risk-high, #fb923c);
+  animation: pulse 2s infinite;
+}
+
+.conclusionCard .stepLabel {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--risk-high, #fb923c);
+  letter-spacing: 0.05em;
+}
+
+.conclusionCard .stepDetail {
+  color: var(--text-primary, #e4e7ed);
+}
+
+@media (max-width: 480px) {
+  .stepCard {
+    padding: var(--space-3, 12px);
+    gap: var(--space-3, 12px);
+  }
+  
+  .iconWrapper {
+    padding: var(--space-2, 8px);
+  }
+}

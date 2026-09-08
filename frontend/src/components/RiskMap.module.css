@@ -1,0 +1,490 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.titleBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--accent-teal, #2dd4bf);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--text-primary, #e4e7ed);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.activeLocMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--accent-blue, #38bdf8);
+  margin-top: 4px;
+}
+
+.pinIcon {
+  color: var(--accent-blue, #38bdf8);
+}
+
+/* Global Search Bar */
+.searchContainer {
+  position: relative;
+  flex: 1;
+  max-width: 440px;
+  min-width: 240px;
+}
+
+.searchInputWrapper {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card, rgba(16, 20, 30, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-md, 8px);
+  padding: 6px 10px;
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+
+.searchInputWrapper:focus-within {
+  border-color: var(--accent-blue, #38bdf8);
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+.searchIcon {
+  color: var(--text-secondary, #8b93a8);
+}
+
+.searchInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text-primary, #e4e7ed);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+}
+
+.searchInput::placeholder {
+  color: var(--text-tertiary, #64748b);
+}
+
+.locationBtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent-blue, #38bdf8);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.locationBtn:hover {
+  background: rgba(56, 189, 248, 0.3);
+  color: #ffffff;
+}
+
+/* Dropdown */
+.dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--bg-elevated, #1c2030);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md, 8px);
+  max-height: 260px;
+  overflow-y: auto;
+  z-index: 1100;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+.dropdownStatus {
+  padding: 12px;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-tertiary, #64748b);
+  text-align: center;
+}
+
+.dropdownItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.dropdownItem:hover {
+  background: rgba(56, 189, 248, 0.1);
+}
+
+.dropItemIcon {
+  color: var(--accent-blue, #38bdf8);
+  margin-top: 2px;
+}
+
+.dropItemText {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropItemName {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--text-primary, #e4e7ed);
+}
+
+.dropItemSub {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--text-secondary, #8b93a8);
+}
+
+/* Action Buttons */
+.actionButtons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.ctrlBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary, #e4e7ed);
+  border-radius: var(--radius-md, 8px);
+  padding: 8px 12px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ctrlBtn:hover, .activeCtrlBtn {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--accent-blue, #38bdf8);
+  color: #ffffff;
+}
+
+.searchStatusBanner {
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  color: var(--accent-blue, #38bdf8);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+}
+
+/* Theme Control Panel */
+.controlPanel {
+  background: rgba(16, 20, 30, 0.92);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg, 12px);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.panelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelTitle {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--accent-teal, #2dd4bf);
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+
+.themeGrid {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.themeChip {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-secondary);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-2xs, 0.65rem);
+  cursor: pointer;
+}
+
+.themeChipActive {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: var(--accent-blue, #38bdf8);
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* Map Wrapper */
+.mapWrapper {
+  position: relative;
+  height: 560px;
+  border-radius: var(--radius-xl, 16px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, var(--border-medium, 0.12));
+  background: #0b0f19;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  background: var(--bg-secondary, #0f1218);
+  z-index: 1;
+}
+
+/* Interactive Weather Picker Card */
+.weatherPickerCard {
+  position: absolute;
+  top: 16px;
+  left: 64px;
+  z-index: 1000;
+  background: rgba(12, 16, 26, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 10px;
+  padding: 12px;
+  width: 280px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+  animation: pickerFadeIn 0.2s ease-out;
+}
+
+@keyframes pickerFadeIn {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pickerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+}
+
+.pickerTitleBox {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickerLocName {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.pickerCoords {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6rem;
+  color: var(--accent-blue, #38bdf8);
+}
+
+.pickerCloseBtn {
+  background: transparent;
+  border: none;
+  color: var(--text-tertiary);
+  cursor: pointer;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.pickerCloseBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.pickerLoading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.65rem;
+  color: var(--text-secondary);
+  padding: 10px 0;
+}
+
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.pickerGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 10px;
+}
+
+.pickerItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.pickerLabel {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.58rem;
+  color: var(--text-tertiary, #64748b);
+  text-transform: uppercase;
+}
+
+.pickerVal {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.pickerValRisk {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.62rem;
+  font-weight: 700;
+  color: var(--accent-teal, #2dd4bf);
+}
+
+.pickerFooter {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.55rem;
+  color: var(--text-tertiary);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 6px;
+  margin-top: 4px;
+}
+
+.truthBanner {
+  background: rgba(244, 63, 94, 0.12);
+  border: 1px solid rgba(244, 63, 94, 0.3);
+  color: #f43f5e;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.65rem;
+  font-weight: 600;
+}
+
+/* Custom Popup Overrides */
+:global(.leaflet-popup-content-wrapper) {
+  background: var(--bg-elevated, #1c2030) !important;
+  color: var(--text-primary, #e4e7ed) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 8px !important;
+  padding: 0 !important;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5) !important;
+}
+
+:global(.leaflet-popup-tip) {
+  background: var(--bg-elevated, #1c2030) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+:global(.leaflet-popup-content) {
+  margin: 0 !important;
+  width: 220px !important;
+}
+
+.popupContent {
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popupTitle {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 700;
+  margin: 0;
+  color: #ffffff;
+}
+
+.popupMeta {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 0.62rem;
+  color: var(--text-secondary);
+}
+
+.popupCoords {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.6rem;
+  color: var(--text-tertiary);
+}
+
+.popupBadge {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: 0.58rem;
+  color: var(--accent-blue, #38bdf8);
+  font-weight: 700;
+  margin-top: 4px;
+}
+
+@media (max-width: 768px) {
+  .mapWrapper {
+    height: 440px;
+  }
+  .weatherPickerCard {
+    left: 12px;
+    width: 240px;
+  }
+}

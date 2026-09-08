@@ -1,0 +1,185 @@
+.warningCenterCard {
+  background-color: var(--bg-card, rgba(16,18,26,0.75));
+  border: 1px solid var(--glass-border, rgba(255,255,255,0.07));
+  border-left: 3px solid var(--risk-high, #fb923c);
+  border-radius: var(--radius-lg, 8px);
+  padding: var(--space-6, 24px);
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  color: var(--text-primary, #e4e7ed);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4, 16px);
+  flex-wrap: wrap;
+  gap: var(--space-4, 16px);
+}
+
+.titleWrapper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, 12px);
+}
+
+.pulsingIcon {
+  color: var(--risk-high, #fb923c);
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.title {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin: 0;
+  color: var(--text-primary, #e4e7ed);
+}
+
+.statusBadge {
+  background-color: var(--risk-high-bg, rgba(251, 146, 60, 0.15));
+  color: var(--risk-high, #fb923c);
+  padding: 4px 12px;
+  border-radius: var(--radius-full, 9999px);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(251, 146, 60, 0.3);
+  animation: gentleGlow 3s infinite alternate;
+}
+
+.pulseDot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--risk-high, #fb923c);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.locationRow {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3, 12px);
+  margin-bottom: var(--space-2, 8px);
+}
+
+.locationIcon {
+  color: var(--text-secondary, #8b93a8);
+  margin-top: 2px;
+}
+
+.locationDetails {
+  display: flex;
+  flex-direction: column;
+}
+
+.locationName {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 600;
+}
+
+.regionName {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-secondary, #8b93a8);
+}
+
+.timestamp {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-muted, #3d4455);
+  margin-bottom: var(--space-4, 16px);
+  margin-left: 32px;
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--border-subtle, rgba(255,255,255,0.04));
+  margin: var(--space-4, 16px) 0;
+}
+
+.sectionLabel {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  color: var(--text-tertiary, #555d72);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--space-3, 12px);
+  text-transform: uppercase;
+}
+
+.factorsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2, 8px);
+}
+
+.factorItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3, 12px);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-secondary, #8b93a8);
+}
+
+.factorDot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent-amber, #fbbf24);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.recommendationBox {
+  background-color: var(--bg-tertiary, #161a24);
+  border-left: 2px solid var(--accent-blue, #4f8ef7);
+  padding: var(--space-4, 16px);
+  border-radius: 0 var(--radius-md, 6px) var(--radius-md, 6px) 0;
+  margin-bottom: var(--space-5, 20px);
+}
+
+.recommendationText {
+  margin: 0;
+  font-style: italic;
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-primary, #e4e7ed);
+  line-height: 1.5;
+}
+
+.actionButtons {
+  display: flex;
+  gap: var(--space-3, 12px);
+  flex-wrap: wrap;
+}
+
+.outlineBtn {
+  background: transparent;
+  border: 1px solid var(--border-medium, rgba(255,255,255,0.1));
+  color: var(--text-primary, #e4e7ed);
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 10px 20px;
+  border-radius: var(--radius-sm, 4px);
+  cursor: pointer;
+  transition: all var(--transition-base, 0.2s) ease;
+  flex: 1;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.outlineBtn:hover {
+  background-color: var(--bg-elevated, #1c2030);
+  border-color: var(--text-secondary, #8b93a8);
+}
