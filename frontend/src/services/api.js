@@ -1,4 +1,5 @@
-const DEFAULT_LAN_BACKEND_URL = 'http://10.175.130.129:8000';
+const DEFAULT_LAN_BACKEND_URL = 'http://172.16.29.252:8000';
+
 
 const normalizeApiBaseUrl = (value) => {
   if (!value || typeof value !== 'string') return null;
