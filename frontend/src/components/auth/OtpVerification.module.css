@@ -1,0 +1,141 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.demoHint {
+  background: rgba(251, 191, 36, 0.1);
+  border: 1px solid var(--accent-amber, #fbbf24);
+  color: var(--accent-amber, #fbbf24);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.lockIcon {
+  font-size: 1rem;
+}
+
+.otpGroup {
+  display: flex;
+  gap: 8px;
+  position: relative;
+  justify-content: center;
+}
+
+.otpBox {
+  width: 48px;
+  height: 56px;
+  background: var(--bg-elevated, #1c2030);
+  border: 2px solid var(--border-default, rgba(255, 255, 255, 0.07));
+  border-radius: var(--radius-md, 8px);
+  color: var(--text-primary, #e4e7ed);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  outline: none;
+  transition: all 0.2s;
+}
+
+.otpBox:focus {
+  border-color: var(--accent-blue, #4f8ef7);
+  box-shadow: 0 0 10px rgba(79, 142, 247, 0.2);
+}
+
+.filledBox {
+  background: var(--bg-tertiary, #161a24);
+}
+
+.errorBox {
+  border-color: var(--risk-critical, #f87171);
+}
+
+.successBox {
+  border-color: var(--accent-teal, #2dd4bf);
+}
+
+.errorShake {
+  animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translate3d(-1px, 0, 0); }
+  20%, 80% { transform: translate3d(2px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-4px, 0, 0); }
+  40%, 60% { transform: translate3d(4px, 0, 0); }
+}
+
+.successScale {
+  animation: scaleUp 0.3s ease-out forwards;
+}
+
+@keyframes scaleUp {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.overlaySpinner {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 12, 16, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md, 8px);
+}
+
+.overlaySpinner::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--accent-blue, #4f8ef7);
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.errorMessage {
+  color: var(--risk-critical, #f87171);
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+}
+
+.actionRow {
+  margin-top: 1.5rem;
+}
+
+.countdown {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  color: var(--text-tertiary, #555d72);
+  font-size: 0.85rem;
+}
+
+.resendBtn {
+  background: none;
+  border: none;
+  color: var(--accent-blue, #4f8ef7);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+}
+
+.resendBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

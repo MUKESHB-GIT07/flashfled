@@ -1,0 +1,463 @@
+/* ============================================================
+   FLASH FLOOD PREDICTION SYSTEM — Design System
+   Premium Disaster Intelligence Command Center
+   ============================================================ */
+
+/* ---------- CSS Custom Properties ---------- */
+:root {
+  /* Background layers */
+  --bg-primary: #0a0c10;
+  --bg-secondary: #0f1218;
+  --bg-tertiary: #161a24;
+  --bg-elevated: #1c2030;
+  --bg-card: rgba(16, 18, 26, 0.75);
+  --bg-card-hover: rgba(24, 28, 40, 0.85);
+  --bg-card-solid: #13161f;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-default: rgba(255, 255, 255, 0.07);
+  --border-medium: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(100, 140, 220, 0.15);
+
+  /* Text hierarchy */
+  --text-primary: #e4e7ed;
+  --text-secondary: #8b93a8;
+  --text-tertiary: #555d72;
+  --text-muted: #3d4455;
+  --text-accent: #6e8bd4;
+
+  /* Risk semantic colors — ONLY for risk information */
+  --risk-low: #34d399;
+  --risk-low-bg: rgba(52, 211, 153, 0.1);
+  --risk-moderate: #fbbf24;
+  --risk-moderate-bg: rgba(251, 191, 36, 0.1);
+  --risk-high: #fb923c;
+  --risk-high-bg: rgba(251, 146, 60, 0.1);
+  --risk-critical: #f87171;
+  --risk-critical-bg: rgba(248, 113, 113, 0.1);
+
+  /* Status */
+  --status-online: #34d399;
+  --status-warning: #fbbf24;
+  --status-danger: #f87171;
+
+  /* Accent palette */
+  --accent-blue: #4f8ef7;
+  --accent-blue-dim: rgba(79, 142, 247, 0.12);
+  --accent-teal: #2dd4bf;
+  --accent-teal-dim: rgba(45, 212, 191, 0.12);
+  --accent-amber: #fbbf24;
+  --accent-amber-dim: rgba(251, 191, 36, 0.1);
+  --accent-purple: #a78bfa;
+
+  /* Typography */
+  --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  /* Font sizes */
+  --text-2xs: 0.625rem;    /* 10px */
+  --text-xs: 0.6875rem;    /* 11px */
+  --text-sm: 0.75rem;      /* 12px */
+  --text-base: 0.8125rem;  /* 13px */
+  --text-md: 0.875rem;     /* 14px */
+  --text-lg: 1rem;         /* 16px */
+  --text-xl: 1.125rem;     /* 18px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 2rem;        /* 32px */
+  --text-4xl: 2.5rem;      /* 40px */
+  --text-5xl: 3.25rem;     /* 52px */
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+
+  /* Layout */
+  --sidebar-width: 72px;
+  --sidebar-width-expanded: 240px;
+  --header-height: auto;
+
+  /* Glass effect */
+  --glass-bg: rgba(14, 16, 22, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.06);
+  --glass-blur: 16px;
+
+  /* Glows */
+  --glow-blue: 0 0 24px rgba(79, 142, 247, 0.12);
+  --glow-risk-high: 0 0 24px rgba(251, 146, 60, 0.15);
+  --glow-risk-critical: 0 0 24px rgba(248, 113, 113, 0.18);
+  --glow-teal: 0 0 24px rgba(45, 212, 191, 0.12);
+
+  /* Transitions */
+  --transition-fast: 120ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Border radius */
+  --radius-xs: 3px;
+  --radius-sm: 5px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  line-height: 1.5;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Topographic background pattern */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image:
+    url("data:image/svg+xml,%3Csvg width='800' height='800' viewBox='0 0 800 800' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 400 Q200 300 400 400 T800 400' fill='none' stroke='%236e8bd4' stroke-width='1'/%3E%3Cpath d='M0 350 Q200 250 400 350 T800 350' fill='none' stroke='%236e8bd4' stroke-width='0.8'/%3E%3Cpath d='M0 450 Q200 350 400 450 T800 450' fill='none' stroke='%236e8bd4' stroke-width='0.8'/%3E%3Cpath d='M0 300 Q200 180 400 300 T800 300' fill='none' stroke='%236e8bd4' stroke-width='0.6'/%3E%3Cpath d='M0 500 Q200 400 400 500 T800 500' fill='none' stroke='%236e8bd4' stroke-width='0.6'/%3E%3Cpath d='M0 240 Q200 120 400 240 T800 240' fill='none' stroke='%236e8bd4' stroke-width='0.5'/%3E%3Cpath d='M0 560 Q200 460 400 560 T800 560' fill='none' stroke='%236e8bd4' stroke-width='0.5'/%3E%3Cpath d='M0 180 Q200 70 400 180 T800 180' fill='none' stroke='%236e8bd4' stroke-width='0.4'/%3E%3Cpath d='M0 620 Q200 520 400 620 T800 620' fill='none' stroke='%236e8bd4' stroke-width='0.4'/%3E%3Cpath d='M0 130 Q200 30 400 130 T800 130' fill='none' stroke='%236e8bd4' stroke-width='0.3'/%3E%3Cpath d='M0 680 Q200 590 400 680 T800 680' fill='none' stroke='%236e8bd4' stroke-width='0.3'/%3E%3C/svg%3E");
+  background-size: 800px 800px;
+}
+
+/* Grid overlay */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.018;
+  background-image:
+    linear-gradient(rgba(110, 139, 212, 0.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 139, 212, 0.3) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+/* ---------- Typography Utilities ---------- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text-primary);
+}
+
+a {
+  color: var(--accent-blue);
+  text-decoration: none;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* ---------- Utility Classes ---------- */
+.section-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.meta-text {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+/* ---------- Glass Card ---------- */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+}
+
+/* ---------- Risk Badges ---------- */
+.risk-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.risk-badge--low {
+  background: var(--risk-low-bg);
+  color: var(--risk-low);
+  border: 1px solid rgba(52, 211, 153, 0.2);
+}
+
+.risk-badge--moderate {
+  background: var(--risk-moderate-bg);
+  color: var(--risk-moderate);
+  border: 1px solid rgba(251, 191, 36, 0.2);
+}
+
+.risk-badge--high {
+  background: var(--risk-high-bg);
+  color: var(--risk-high);
+  border: 1px solid rgba(251, 146, 60, 0.2);
+}
+
+.risk-badge--critical {
+  background: var(--risk-critical-bg);
+  color: var(--risk-critical);
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+/* ---------- Animations ---------- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+@keyframes gentleGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(251, 146, 60, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(251, 146, 60, 0.25); }
+}
+
+@keyframes dashFlow {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.8); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.4s ease both;
+}
+
+/* Stagger delays */
+.delay-1 { animation-delay: 0.05s; }
+.delay-2 { animation-delay: 0.1s; }
+.delay-3 { animation-delay: 0.15s; }
+.delay-4 { animation-delay: 0.2s; }
+.delay-5 { animation-delay: 0.25s; }
+.delay-6 { animation-delay: 0.3s; }
+.delay-7 { animation-delay: 0.35s; }
+.delay-8 { animation-delay: 0.4s; }
+
+/* ---------- Leaflet Overrides ---------- */
+.leaflet-container {
+  background: var(--bg-primary) !important;
+  font-family: var(--font-body) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-default) !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(10, 12, 16, 0.85) !important;
+  color: var(--text-tertiary) !important;
+  font-size: 9px !important;
+}
+
+.leaflet-control-attribution a {
+  color: var(--text-tertiary) !important;
+}
+
+.leaflet-popup-content-wrapper {
+  background: var(--bg-elevated) !important;
+  color: var(--text-primary) !important;
+  border-radius: var(--radius-lg) !important;
+  border: 1px solid var(--border-medium) !important;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5) !important;
+  padding: 0 !important;
+}
+
+.leaflet-popup-content {
+  margin: 0 !important;
+  font-family: var(--font-body) !important;
+  font-size: var(--text-base) !important;
+  line-height: 1.5 !important;
+}
+
+.leaflet-popup-tip {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-medium) !important;
+  box-shadow: none !important;
+}
+
+.leaflet-popup-close-button {
+  color: var(--text-secondary) !important;
+}
+
+/* ---------- Recharts Overrides ---------- */
+.recharts-default-tooltip {
+  background: var(--bg-elevated) !important;
+  border: 1px solid var(--border-medium) !important;
+  border-radius: var(--radius-md) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4) !important;
+  padding: var(--space-3) var(--space-4) !important;
+}
+
+.recharts-tooltip-label {
+  font-family: var(--font-mono) !important;
+  font-size: var(--text-xs) !important;
+  color: var(--text-secondary) !important;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px !important;
+}
+
+.recharts-tooltip-item {
+  font-family: var(--font-mono) !important;
+  font-size: var(--text-sm) !important;
+  padding: 0 !important;
+}
+
+.recharts-cartesian-grid line {
+  stroke: rgba(255, 255, 255, 0.04) !important;
+}
+
+.recharts-text {
+  font-family: var(--font-mono) !important;
+  font-size: 10px !important;
+  fill: var(--text-tertiary) !important;
+}
+
+/* ---------- Responsive Breakpoints ---------- */
+/* Tablet: max-width 1024px */
+/* Mobile: max-width 768px */
+
+@media (max-width: 768px) {
+  :root {
+    --text-4xl: 1.75rem;
+    --text-3xl: 1.5rem;
+    --text-2xl: 1.25rem;
+  }
+}
+
+/* ---------- Accessibility: Reduced Motion Support ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+

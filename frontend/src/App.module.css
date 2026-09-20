@@ -1,0 +1,120 @@
+.appLayout {
+  display: flex;
+  min-height: 100vh;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  position: relative;
+}
+
+.mainContent {
+  flex: 1;
+  margin-left: var(--sidebar-width, 72px);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  transition: margin-left var(--transition-base);
+}
+
+.dashboardBody {
+  flex: 1;
+  padding: var(--space-6) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Telemetry Grid: 5 columns on large screens */
+.telemetryGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-4);
+}
+
+/* Two-column overview grid */
+.overviewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+/* Two-column grid for prediction section (Explainable AI & High Risk Locations) */
+.predictionGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  align-items: stretch;
+}
+
+.section {
+  scroll-margin-top: 100px;
+}
+
+.footer {
+  padding: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--border-subtle);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--text-tertiary);
+  background: var(--bg-secondary);
+  margin-top: var(--space-8);
+}
+
+.footerBrand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.footerTag {
+  color: var(--text-accent);
+  border: 1px solid var(--border-default);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1280px) {
+  .telemetryGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .overviewGrid,
+  .predictionGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .mainContent {
+    margin-left: 0;
+    margin-bottom: 64px; /* for fixed bottom sidebar on mobile */
+  }
+
+  .dashboardBody {
+    padding: var(--space-4);
+    gap: var(--space-6);
+  }
+
+  .telemetryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .footer {
+    flex-direction: column;
+    gap: var(--space-2);
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .telemetryGrid {
+    grid-template-columns: 1fr;
+  }
+}

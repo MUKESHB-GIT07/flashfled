@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.header {
+  margin-bottom: 8px;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-2xs, 0.65rem);
+  color: var(--accent-amber, #fbbf24);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.sectionTitle {
+  font-family: var(--font-display, 'Space Grotesk', sans-serif);
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--text-primary, #e4e7ed);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+
+.chartsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .chartsGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.chartCard {
+  background: var(--bg-card, rgba(16, 18, 26, 0.75));
+  border: 1px solid rgba(255, 255, 255, var(--border-default, 0.07));
+  border-radius: var(--radius-lg, 12px);
+  padding: 20px;
+  backdrop-filter: blur(var(--glass-blur, 16px));
+  -webkit-backdrop-filter: blur(var(--glass-blur, 16px));
+}
+
+.chartTitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary, #8b93a8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 16px 0;
+  font-weight: 500;
+}
+
+.chartWrapper {
+  width: 100%;
+  height: 200px;
+}
+
+.customTooltip {
+  background: var(--bg-elevated, #1c2030);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md, 8px);
+  padding: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.tooltipLabel {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+}
+
+.tooltipData {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  margin: 0;
+}

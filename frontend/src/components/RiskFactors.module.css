@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.labelWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.label {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-primary, #e4e7ed);
+}
+
+.value {
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-secondary, #8b93a8);
+}
+
+.barTrack {
+  width: 100%;
+  height: 6px;
+  background: var(--bg-tertiary, #161a24);
+  border-radius: var(--radius-full, 9999px);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: var(--radius-full, 9999px);
+  transition: width 1s ease-out;
+}
