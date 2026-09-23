@@ -122,7 +122,7 @@ class SMSService:
                 "alert_areas": ["HOME"]
             }
 
-        # Log OTP generation
+               # Log OTP generation
         provider_info = SMSService.get_provider_status()
 
         # In DEMO mode, return OTP in response for testing ease
@@ -133,7 +133,7 @@ class SMSService:
             "phone_masked": mask_phone_number(full_number),
             "demo_otp": otp_code if provider_info["status"] == "DEMO" else None,
             "provider_status": provider_info["status"]
-        }
+        }      
 
     @staticmethod
     def verify_otp(country_code: str, phone_number: str, otp: str) -> Dict[str, Any]:
